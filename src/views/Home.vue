@@ -10,7 +10,7 @@
       <div class="column">
         <div class="panel bar">
           <h2>柱形图-就业行情</h2>
-          <div class="chart">图表</div>
+          <div class="chart" ref="bar_ref">图表</div>
           <div class="panel-footer"></div>
         </div>
         <div class="panel line">
@@ -18,12 +18,12 @@
             折线图-人员变化 <span @click="chengeYear('2020')">2020</span
             ><span @click="chengeYear('2021')">2021</span>
           </h2>
-          <div class="chart">图表</div>
+          <div class="chart" ref="line_ref">图表</div>
           <div class="panel-footer"></div>
         </div>
         <div class="panel pie">
           <h2>饼形图-年龄分布</h2>
-          <div class="chart">图表</div>
+          <div class="chart" ref="pie_ref">图表</div>
           <div class="panel-footer"></div>
         </div>
       </div>
@@ -47,24 +47,24 @@
             <div class="map1"></div>
             <div class="map2"></div>
             <div class="map3"></div>
-            <div class="chart">地图模块</div>
+            <div class="chart" ref="map_ref">地图模块</div>
           </div>
         </div>
       </div>
       <div class="column">
         <div class="panel bar2">
           <h2>柱形图-技能掌握</h2>
-          <div class="chart">图表</div>
+          <div class="chart" ref="bar2_ref">图表</div>
           <div class="panel-footer"></div>
         </div>
         <div class="panel line2">
           <h2>折线图-播放量</h2>
-          <div class="chart">图表</div>
+          <div class="chart"  ref="line2_ref">图表</div>
           <div class="panel-footer"></div>
         </div>
         <div class="panel pie2">
           <h2>饼形图-地区分布</h2>
-          <div class="chart">图表</div>
+          <div class="chart" ref="pie2_ref">图表</div>
           <div class="panel-footer"></div>
         </div>
       </div>
@@ -149,7 +149,7 @@ export default {
     // 柱状图1
     drawChart() {
       // 基于准备好的dom，初始化echarts实例
-      let myChart = this.$echarts.init(document.querySelector(".bar .chart"));
+      let myChart = this.$echarts.init(this.$refs.bar_ref);
       // 配置选项和数据
       let option = {
         color: ["#2f89cf"],
@@ -237,7 +237,7 @@ export default {
     // 柱状图2
     drawChart2() {
       // 基于准备好的dom，初始化echarts实例
-      let myChart = this.$echarts.init(document.querySelector(".bar2 .chart"));
+      let myChart = this.$echarts.init(this.$refs.bar2_ref);
       // 柱子颜色
       const myColor = ["#1089E7", "#F57474", "#56D0E3", "#F8B448", "#8B78F6"];
       let option = {
@@ -334,7 +334,7 @@ export default {
     // 折线图1
     drawChart3() {
       // 基于准备好的dom，初始化echarts实例
-      let myChart = this.$echarts.init(document.querySelector(".line .chart"));
+      let myChart = this.$echarts.init(this.$refs.line_ref);
       let option = {
         // 通过color修改两条线的颜色
         color: ["#00f2f1", "#ed3f35"],
@@ -434,7 +434,7 @@ export default {
     },
     //折线图2
     drawChart4() {
-      let myChart = this.$echarts.init(document.querySelector(".line2 .chart"));
+      let myChart = this.$echarts.init(this.$refs.line2_ref);
       let option = {
         tooltip: {
           trigger: "axis",
@@ -640,7 +640,7 @@ export default {
     },
     // 饼图1
     drawChart5() {
-      let myChart = this.$echarts.init(document.querySelector(".pie .chart"));
+      let myChart = this.$echarts.init(this.$refs.pie_ref);
       let option = {
         color: ["#065aab", "#066eab", "#0682ab", "#0696ab", "#06a0ab"],
         tooltip: {
@@ -691,7 +691,7 @@ export default {
     },
     // 饼图2
     drawChart6() {
-      let myChart = this.$echarts.init(document.querySelector(".pie2 .chart"));
+      let myChart = this.$echarts.init(this.$refs.pie2_ref);
       let option = {
         color: [
           "#006cff",
@@ -1009,7 +1009,7 @@ export default {
         );
       });
 
-      let myChart = this.$echarts.init(document.querySelector(".map .chart"));
+      let myChart = this.$echarts.init(this.$refs.map_ref);
       let option = {
         tooltip: {
           trigger: "item",
